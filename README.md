@@ -1,4 +1,4 @@
-![LOGO](https://github.com/touchlane/NetapixTools/blob/master/assets/logo.svg)
+![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
 | Tool | Message |
 | ------------- | ------------- |
