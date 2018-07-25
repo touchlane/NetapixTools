@@ -22,8 +22,8 @@ def main():
     indices_valid = []
     values_valid = []
     for line in lines:
-        error_res = re.findall(r'Iteration: (\d+).*Error: (\d+\.\d+)', line)
-        valid_res = re.findall(r'Epoch: (\d+).*Iteration: (\d+).*Cross Validation Error: (\d+\.\d+)', line)
+        error_res = re.findall(r'Iteration:(\d+).*Error:(\d+\.\d+)', line)
+        valid_res = re.findall(r'Epoch:(\d+).*Iteration:(\d+).*Cross Validation Error:(\d+\.\d+)', line)
         if error_res:
             index, value = error_res[0]
             indices.append(int(index))
@@ -34,7 +34,6 @@ def main():
             values_valid.append(float(value))
 
     plt.plot(indices, values, '-', indices_valid, values_valid, '-')
-#plt.plot(indices_valid, values_valid)
     plt.show()
 
 if __name__ == '__main__':
