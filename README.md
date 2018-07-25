@@ -5,5 +5,5 @@
 ## Usage
 ```
 pip3 install -r requirements.txt
-python3 loss_graph.py input.txt
+python3 main.py input.txt
 ```
