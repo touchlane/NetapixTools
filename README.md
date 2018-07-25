@@ -1,9 +1,14 @@
-How to run.
+![LOGO](https://github.com/touchlane/NetapixTools/blob/master/assets/logo.svg)
 
-* Install python3 via homebrew.
-```brew install python```  
-* Install dependencies.
+# Loss Graph
+
+
+## Installation
+* Navigate to loss_graph directory at terminal
+```cd ./loss_graph``` 
+* Install dependencies
 ```pip3 install -r requirements.txt```
-* Put log output in input.txt file.
-* Run the script.
-```python3 ./loss_graph/main.py input.txt```
+* Run script on test input
+```python3 loss_graph.py input_example.txt```
+
+## Usage
