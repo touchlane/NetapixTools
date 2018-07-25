@@ -1,4 +1,4 @@
-![LOGO](https://github.com/touchlane/NetapixTools/blob/master/assets/logo.svg)
+![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
 # Loss Graph
 ![LOSS_GRAPH_EXAMPLE](https://github.com/touchlane/NetapixTools/blob/loss_graph/assets/loss_example.png)
