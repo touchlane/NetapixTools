@@ -23,7 +23,7 @@ def make_output_file(jpg_filepath, txt_filepath):
     with open(txt_filepath) as file:
         for line in file:
             for num in line:
-                f.write(''.join(' {}'.format(num)))
+                f.write(''.join(' {}'.format(float(num))))
 
 
 def jpg_and_txt_to_npt_file():
