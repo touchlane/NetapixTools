@@ -36,9 +36,9 @@ def npo_to_txt_folder():
         print("Enter path to log folder")
         sys.exit()
     for subdir, dirs, files in os.walk(sys.argv[1]):
-        for file in files:
-            file = os.path.abspath(file).split(file)[0] + sys.argv[1] + "/" + file
-            make_output_file(os.path.abspath(file))
+        for my_file in files:
+            my_file = os.path.abspath(my_file).split(my_file)[0] + sys.argv[1] + "/" + my_file
+            make_output_file(os.path.abspath(my_file))
 
 
 if __name__ == '__main__':
