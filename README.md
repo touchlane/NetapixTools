@@ -1,6 +1,6 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
-| Tools | Comments |
+| Tool | Comment |
 | ------------- | ------------- |
 | [loss graph](https://github.com/touchlane/NetapixTools/tree/loss_graph) |  |
 | [.jpg + .txt => .npt](https://github.com/touchlane/NetapixTools/tree/jpg_and_txt_to_npt) |  |
