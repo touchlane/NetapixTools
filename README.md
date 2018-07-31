@@ -8,9 +8,9 @@ In order to install virtual environment follow [this link](https://github.com/to
 
 ### Run script
 
-'''
+```
 pip install -r requirements.txt
 python3 main.py *your file/folder* *your file/folder*
-'''
+```
 
 Note that you can run both with files and folders in any order you want, however there should be .jpg file(or files in folder) and .txt file(or files in folder).
