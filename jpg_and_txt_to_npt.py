@@ -6,7 +6,7 @@ import sys
 
 def make_output_file_url(jpg_file_url):
     output_file_name = os.path.basename(jpg_file_url).split('.')[0]
-    output_file_url = jpg_file_url.split(output_file_name)[0].split(sys.argv[1])[0]
+    output_file_url = os.getcwd() + '/'
     if not os.path.exists(output_file_url + "output"):
         os.makedirs(output_file_url + "output")
     return output_file_url + "output/" + output_file_name + ".npt"
@@ -73,6 +73,7 @@ def jpg_and_txt_to_npt_folder():
 
 
 if __name__ == '__main__':
+    print (os.getcwd())
     if os.path.isfile(os.path.abspath(sys.argv[1])) and os.path.isfile(os.path.abspath(sys.argv[2])):
         jpg_and_txt_to_npt_file()
     else:
