@@ -18,7 +18,7 @@ apt-get install python python-virtualenv
 
 ```
 mkdir -p ~/.virtualenv
-virtualenv --python=python2.7 --no-site-packages ~/.virtualenv/'yourproject'
+virtualenv --python=python3 --no-site-packages ~/.virtualenv/'yourproject'
 ```
 
 ## Activate this virtual env
