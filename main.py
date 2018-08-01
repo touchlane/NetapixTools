@@ -2,6 +2,7 @@ from __future__ import division
 import imageio
 import os
 import sys
+import struct
 
 
 def make_output_file_url(jpg_file_url):
@@ -15,16 +16,19 @@ def make_output_file_url(jpg_file_url):
 def write_jpg_to_output_file(jpg_filepath, file):
     image = imageio.imread(jpg_filepath)
     is_gray = 0
+    result = []
     if len(image.shape) < 3:
         is_gray = 1
     for i in range(image.shape[0]):
         for j in range(image.shape[1]):
             if not is_gray:
                 r, g, b = tuple(image[i][j])
-                file.write(''.join('{} {} {} '.format(r / 255, g / 255, b / 255)))
+                result.extend([r / 255, g / 255, b / 255])
             else:
                 gray = image[i][j]
-                file.write(''.join('{} '.format(gray / 255)))
+                result.append(gray / 255)
+    file.write(struct.pack('%sf' % len(result), *result))
+    file.close()
 
 
 def make_output_file(jpg_first_filepath, jpg_second_filepath):
