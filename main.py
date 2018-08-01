@@ -32,7 +32,7 @@ def make_output_file(jpg_filepath, txt_filepath):
                 result.append(gray / 255)
     with open(txt_filepath) as file:
         for line in file:
-            for num in line.split(' '):
+            for num in line.strip().split(' '):
                 result.append(float(num))
     f.write(struct.pack('%sf' % len(result), *result))
     f.close()
