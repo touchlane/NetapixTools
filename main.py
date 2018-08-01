@@ -34,7 +34,9 @@ def make_output_file(jpg_filepath, txt_filepath):
         for line in file:
             for num in line.strip().split(' '):
                 result.append(float(num))
+    file.close()
     f.write(struct.pack('%sf' % len(result), *result))
+    del result
     f.close()
 
 
