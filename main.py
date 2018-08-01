@@ -1,7 +1,9 @@
 from __future__ import division
 import imageio
+from array import array
 import os
 import sys
+import struct
 
 
 def make_output_file_url(jpg_file_url):
@@ -15,24 +17,25 @@ def make_output_file_url(jpg_file_url):
 def make_output_file(jpg_filepath, txt_filepath):
     image = imageio.imread(jpg_filepath)
     output_file_url = make_output_file_url(jpg_filepath)
-    f = open(output_file_url, "w+")
+    f = open(output_file_url, "wb+")
     is_gray = 0
-    result = ""
+    result = []
     if len(image.shape) < 3:
         is_gray = 1
     for i in range(image.shape[0]):
         for j in range(image.shape[1]):
             if not is_gray:
                 r, g, b = tuple(image[i][j])
-                result += '{} {} {} '.format(r / 255, g / 255, b / 255)
+                result.extend([r / 255, g / 255, b / 255])
             else:
                 gray = image[i][j]
-                result += '{} '.format(gray / 255)
+                result.append(gray / 255)
     with open(txt_filepath) as file:
         for line in file:
-            for num in line:
-                result += ' {}'.format(num)
-    f.write(result)
+            for num in line.split(' '):
+                result.append(float(num))
+    f.write(struct.pack('%sf' % len(result), *result))
+    f.close()
 
 
 def jpg_and_txt_to_npt_file():
@@ -75,7 +78,6 @@ def jpg_and_txt_to_npt_folder():
 
 
 if __name__ == '__main__':
-    print (os.getcwd())
     if os.path.isfile(os.path.abspath(sys.argv[1])) and os.path.isfile(os.path.abspath(sys.argv[2])):
         jpg_and_txt_to_npt_file()
     else:
