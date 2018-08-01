@@ -4,6 +4,7 @@ from array import array
 import os
 import sys
 import struct
+import psutil._psutil_osx
 
 
 def make_output_file_url(jpg_file_url):
@@ -74,9 +75,12 @@ def jpg_and_txt_to_npt_folder():
             for my_filename1 in first_files:
                 for my_filename2 in second_files:
                     if my_filename1.split(".")[0] == my_filename2.split(".")[0]:
-                        my_filename1 = os.path.abspath(my_filename1).split(my_filename1)[0] + sys.argv[1] + "/" + my_filename1
-                        my_filename2 = os.path.abspath(my_filename2).split(my_filename2)[0] + sys.argv[2] + "/" + my_filename2
-                        make_output_file(os.path.abspath(my_filename1), os.path.abspath(my_filename2)) if (".jpg" in my_filename1) else make_output_file(os.path.abspath(my_filename2), os.path.abspath(my_filename1))
+                        print(psutil.virtual_memory())
+                        # my_filename1 = os.path.abspath(my_filename1).split(my_filename1)[0] + sys.argv[1] + "/" + my_filename1
+                        my_filename1 = os.path.abspath(sys.argv[1]) +'/' + my_filename1
+                        my_filename2 = os.path.abspath(sys.argv[2]) +'/' + my_filename2
+                        # my_filename2 = os.path.abspath(my_filename2).split(my_filename2)[0] + sys.argv[2] + "/" + my_filename2
+                        make_output_file(my_filename1, my_filename2) if (".jpg" in my_filename1) else make_output_file(my_filename2, my_filename1)
 
 
 if __name__ == '__main__':
