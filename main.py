@@ -17,20 +17,22 @@ def make_output_file(jpg_filepath, txt_filepath):
     output_file_url = make_output_file_url(jpg_filepath)
     f = open(output_file_url, "w+")
     is_gray = 0
+    result = ""
     if len(image.shape) < 3:
         is_gray = 1
     for i in range(image.shape[0]):
         for j in range(image.shape[1]):
             if not is_gray:
                 r, g, b = tuple(image[i][j])
-                f.write(''.join('{} {} {} '.format(r / 255, g / 255, b / 255)))
+                result += '{} {} {} '.format(r / 255, g / 255, b / 255)
             else:
                 gray = image[i][j]
-                f.write(''.join('{} '.format(gray / 255)))
+                result += '{} '.format(gray / 255)
     with open(txt_filepath) as file:
         for line in file:
             for num in line:
-                f.write(''.join(' {}'.format(num)))
+                result += ' {}'.format(num)
+    f.write(result)
 
 
 def jpg_and_txt_to_npt_file():
