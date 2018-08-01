@@ -2,6 +2,7 @@ from __future__ import division
 import imageio
 import os
 import sys
+import struct
 
 
 def make_output_file_url(jpg_file_url):
@@ -17,19 +18,22 @@ def make_output_file(jpg_filepath):
     output_file_url = make_output_file_url(jpg_filepath)
     f = open(output_file_url, "w+")
     is_gray = 0
+    result = []
     if len(image.shape) < 3:
         is_gray = 1
     for i in range(image.shape[0]):
         for j in range(image.shape[1]):
             if not is_gray:
                 r, g, b = tuple(image[i][j])
-                f.write(''.join('{} {} {} '.format(r / 255, g / 255, b / 255)))
+                result.extend([r / 255, g / 255, b / 255])
             else:
                 gray = image[i][j]
-                f.write(''.join('{} '.format(gray / 255)))
+                result.append(gray / 255)
+    f.write(struct.pack('%sf' % len(result), *result))
+    f.close()
 
 
-def jpg_and_txt_to_npt_file():
+def jpg_to_npi_file():
     if len(sys.argv) < 2:
         print("Enter path to log file")
         sys.exit()
@@ -40,7 +44,7 @@ def jpg_and_txt_to_npt_file():
         sys.exit()
 
 
-def jpg_and_txt_to_npt_folder():
+def jpg_to_npi_folder():
     if len(sys.argv) < 2:
         print("Enter path to log folder")
         sys.exit()
@@ -52,6 +56,6 @@ def jpg_and_txt_to_npt_folder():
 
 if __name__ == '__main__':
     if os.path.isfile(os.path.abspath(sys.argv[1])):
-        jpg_and_txt_to_npt_file()
+        jpg_to_npi_file()
     else:
-        jpg_and_txt_to_npt_folder()
+        jpg_to_npi_folder()
