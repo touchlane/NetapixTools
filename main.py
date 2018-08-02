@@ -1,8 +1,9 @@
 from __future__ import division
-import imageio
+import skimage.io as io
 import os
 import sys
 import struct
+import glob
 
 
 def make_output_file_url(jpg_file_url):
@@ -13,8 +14,8 @@ def make_output_file_url(jpg_file_url):
     return output_file_url + "output/" + output_file_name + ".npt"
 
 
-def write_jpg_to_output_file(jpg_filepath, file):
-    image = imageio.imread(jpg_filepath)
+def write_jpg_to_output_file(jpg_filepath, f):
+    image = io.imread(jpg_filepath)
     is_gray = 0
     result = []
     if len(image.shape) < 3:
@@ -27,15 +28,17 @@ def write_jpg_to_output_file(jpg_filepath, file):
             else:
                 gray = image[i][j]
                 result.append(gray / 255)
-    file.write(struct.pack('%sf' % len(result), *result))
-    file.close()
+    f.write(struct.pack('%sf' % len(result), *result))
+    del result
+    f.close()
 
 
-def make_output_file(jpg_first_filepath, jpg_second_filepath):
-    output_file_url = make_output_file_url(jpg_first_filepath)
-    f = open(output_file_url, "w+")
-    write_jpg_to_output_file(jpg_first_filepath, f)
-    write_jpg_to_output_file(jpg_second_filepath, f)
+def make_output_file(jpg_first_filepath, jpg_second_filepath, output_file):
+    if os.path.isfile(jpg_second_filepath):
+        f = open(output_file, "wb+")
+        write_jpg_to_output_file(jpg_first_filepath, f)
+        write_jpg_to_output_file(jpg_second_filepath, f)
+        f.close()
 
 
 def jpg_and_txt_to_npt_file():
@@ -52,22 +55,26 @@ def jpg_and_txt_to_npt_file():
     make_output_file(input_first_jpg_filepath, input_second_jpg_filepath)
 
 
-def jpg_and_txt_to_npt_folder():
+def jpg_and_txt_to_npt_folder(output):
     if len(sys.argv) < 3:
         print("Enter paths to log folders")
         sys.exit()
-    for subdir, dirs, first_files in os.walk(sys.argv[1]):
-        for subdir, dirs, second_files in os.walk(sys.argv[2]):
-            for my_filename1 in first_files:
-                for my_filename2 in second_files:
-                    if my_filename1.split(".")[0] == my_filename2.split(".")[0]:
-                        my_filename1 = os.path.abspath(my_filename1).split(my_filename1)[0] + sys.argv[1] + "/" + my_filename1
-                        my_filename2 = os.path.abspath(my_filename2).split(my_filename2)[0] + sys.argv[2] + "/" + my_filename2
-                        make_output_file(os.path.abspath(my_filename1), os.path.abspath(my_filename2))
+    second_path = os.path.abspath(sys.argv[2]) + '/'
+    first_files = glob.glob(sys.argv[1] + '/*.jpg')
+    for my_filename1 in first_files:
+        buf = my_filename1.split('/')[-1]
+        my_filename2 = second_path + buf
+        output_file = output + '/' + buf.split('.')[0] + ".npt"
+        make_output_file(my_filename1, my_filename2, output_file) if (".jpg" in my_filename1) else make_output_file(my_filename2, my_filename1, output_file)
+        del buf
+        del my_filename2
 
 
 if __name__ == '__main__':
+    output_folder = os.getcwd() + "/output"
+    if not os.path.isdir(output_folder):
+        os.makedirs(output_folder)
     if os.path.isfile(os.path.abspath(sys.argv[1])) and os.path.isfile(os.path.abspath(sys.argv[2])):
         jpg_and_txt_to_npt_file()
     else:
-        jpg_and_txt_to_npt_folder()
+        jpg_and_txt_to_npt_folder(output_folder)
