@@ -52,7 +52,9 @@ def jpg_to_npi_folder(my_output_folder):
         sys.exit()
     first_files = glob.glob(sys.argv[1] + '/*.jpg')
     for my_filename in first_files:
-            make_output_file(my_filename, my_output_folder)
+        buf = my_filename.split('/')[-1].split('.')[0]
+        output_file = my_output_folder + '/' + buf + ".npi"
+        make_output_file(my_filename, output_file)
 
 
 if __name__ == '__main__':
