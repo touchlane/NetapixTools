@@ -1,8 +1,9 @@
 from __future__ import division
-import imageio
+import skimage.io as io
 import os
 import sys
 import struct
+import glob
 
 
 def make_output_file_url(jpg_file_url):
@@ -13,10 +14,9 @@ def make_output_file_url(jpg_file_url):
     return output_file_url + "output/" + output_file_name + ".npi"
 
 
-def make_output_file(jpg_filepath):
-    image = imageio.imread(jpg_filepath)
-    output_file_url = make_output_file_url(jpg_filepath)
-    f = open(output_file_url, "w+")
+def make_output_file(jpg_filepath, output_file):
+    image = io.imread(jpg_filepath)
+    f = open(output_file, "wb+")
     is_gray = 0
     result = []
     if len(image.shape) < 3:
@@ -29,33 +29,37 @@ def make_output_file(jpg_filepath):
             else:
                 gray = image[i][j]
                 result.append(gray / 255)
+    del image
     f.write(struct.pack('%sf' % len(result), *result))
+    del result
     f.close()
 
 
-def jpg_to_npi_file():
+def jpg_to_npi_file(my_output_folder):
     if len(sys.argv) < 2:
         print("Enter path to log file")
         sys.exit()
     if ".jpg" in os.path.basename(sys.argv[1]):
-        make_output_file(os.path.abspath(sys.argv[1]))
+        make_output_file(os.path.abspath(sys.argv[1]), my_output_folder)
     else:
         print ("Wrong jpg file!")
         sys.exit()
 
 
-def jpg_to_npi_folder():
+def jpg_to_npi_folder(my_output_folder):
     if len(sys.argv) < 2:
         print("Enter path to log folder")
         sys.exit()
-    for subdir, dirs, files in os.walk(sys.argv[1]):
-        for my_filename in files:
-                my_filename = os.path.abspath(my_filename).split(my_filename)[0] + sys.argv[1] + "/" + my_filename
-                make_output_file(os.path.abspath(my_filename))
+    first_files = glob.glob(sys.argv[1] + '/*.jpg')
+    for my_filename in first_files:
+            make_output_file(my_filename, my_output_folder)
 
 
 if __name__ == '__main__':
+    output_folder = os.getcwd() + "/output"
+    if not os.path.isdir(output_folder):
+        os.makedirs(output_folder)
     if os.path.isfile(os.path.abspath(sys.argv[1])):
-        jpg_to_npi_file()
+        jpg_to_npi_file(output_folder)
     else:
-        jpg_to_npi_folder()
+        jpg_to_npi_folder(output_folder)
