@@ -30,7 +30,6 @@ def write_jpg_to_output_file(jpg_filepath, f):
                 result.append(gray / 255)
     f.write(struct.pack('%sf' % len(result), *result))
     del result
-    f.close()
 
 
 def make_output_file(jpg_first_filepath, jpg_second_filepath, output_file):
