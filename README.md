@@ -9,7 +9,7 @@ In order to install virtual environment follow [this link](https://github.com/to
 ### Run script
 
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 python3 main.py *your file/folder* *your file/folder*
 ```
 
