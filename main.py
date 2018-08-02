@@ -33,7 +33,7 @@ def make_output_file(jpg_filepath, txt_filepath, output_file):
         f.close()
 
 
-def jpg_and_txt_to_npt_file():
+def jpg_and_txt_to_npt_file(output):
     if len(sys.argv) < 3:
         print("Enter paths to log files")
         sys.exit()
@@ -55,10 +55,10 @@ def jpg_and_txt_to_npt_file():
     else:
         print ("Wrong jpg file!")
         sys.exit()
-    make_output_file(input_jpg_filepath, input_txt_filepath)
+    make_output_file(input_jpg_filepath, input_txt_filepath, output)
 
 
-def jpg_and_txt_to_npt_folder(output_folder):
+def jpg_and_txt_to_npt_folder(my_output_folder):
     if len(sys.argv) < 3:
         print("Enter paths to log folders")
         sys.exit()
@@ -67,7 +67,7 @@ def jpg_and_txt_to_npt_folder(output_folder):
     for my_filename1 in first_files:
         buf = my_filename1.split('/')[-1].split('.')[0]
         my_filename2 = second_path + buf + ".txt"
-        output_file = output_folder + '/' + buf + ".npt"
+        output_file = my_output_folder + '/' + buf + ".npt"
         make_output_file(my_filename1, my_filename2, output_file) if (".jpg" in my_filename1) else make_output_file(my_filename2, my_filename1, output_file)
         del buf
         del my_filename2
@@ -78,6 +78,6 @@ if __name__ == '__main__':
     if not os.path.isdir(output_folder):
         os.makedirs(output_folder)
     if os.path.isfile(os.path.abspath(sys.argv[1])) and os.path.isfile(os.path.abspath(sys.argv[2])):
-        jpg_and_txt_to_npt_file()
+        jpg_and_txt_to_npt_file(output_folder)
     else:
         jpg_and_txt_to_npt_folder(output_folder)
