@@ -40,7 +40,8 @@ def jpg_to_npi_file(my_output_folder):
         print("Enter path to log file")
         sys.exit()
     if ".jpg" in os.path.basename(sys.argv[1]):
-        make_output_file(os.path.abspath(sys.argv[1]), my_output_folder)
+        my_output_file = my_output_folder + '/' + sys.argv[1].split('/')[-1].split('.')[0] + '.npi'
+        make_output_file(os.path.abspath(sys.argv[1]), my_output_file)
     else:
         print ("Wrong jpg file!")
         sys.exit()
