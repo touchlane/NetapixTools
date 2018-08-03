@@ -1,16 +1,26 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
-## Usage
+# Usage
 
-### Install virtual environment
+## Install virtual environment
 
-In order to install virtual environment follow [this link](https://github.com/touchlane/NetapixTools/blob/docs/virtualEnvironmentGuide.md)
+### Create a virtual env for the project
+
+```
+mkdir -p ~/.virtualenv
+virtualenv --python=python3 --no-site-packages ~/.virtualenv/npo_to_txt
+```
+
+### Activate this virtual env
+
+```
+source ~/.virtualenv/npo_to_txt/bin/activate
+```
+
 
 ### Run script
 
 ```
-pip install -r requirements.txt
-python3 main.py *your file/folder* *your file/folder*
+pip3 install -r requirements.txt
+python3 main.py test_npo
 ```
-
-Note that you can run both with files and folders in any order you want, however there should be **.jpg** file(or files in folder) and **.txt** file(or files in folder).
