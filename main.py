@@ -1,48 +1,73 @@
 from __future__ import division
+from PIL import Image
 import os
 import sys
+import glob
+import numpy as np
 
 
-def make_output_file_url(npo_file_url):
-    output_file_name = os.path.basename(npo_file_url).split('.')[0]
-    output_file_url = os.getcwd() + '/'
-    if not os.path.exists(output_file_url + "output"):
-        os.makedirs(output_file_url + "output")
-    return output_file_url + "output/" + output_file_name + ".png"
+def make_output_file(npo_filepath, output_file, is_gray):
+    with open(npo_filepath, 'rb') as file:
+        buf = np.zeros([int(sys.argv[2]), int(sys.argv[3]), 4], dtype=np.uint8)
+        array = np.fromfile(file, dtype=np.float32)
+        real_array = []
+        temp = []
+        if is_gray:
+            [real_array.extend([[i] * 3]) for i in array]
+        else:
+            for i in range(0, len(array), 3):
+                temp = [array[i], array[i+1], array[i+2]]
+                real_array.extend([temp])
+        index = 0
+        for i in range(int(sys.argv[2])):
+            for j in range(int(sys.argv[3])):
+                real_array[index] = map(lambda x: x*255, real_array[index])
+                real_array[index].append(255)
+                buf[i, j] = real_array[index]
+                index += 1
+        im = Image.fromarray(np.array(buf))
+        im.save(output_file)
 
 
-def make_output_file(npo_filepath):
-    output_file_url = make_output_file_url(npo_filepath)
-    f = open(output_file_url, "w+")
-    with open(npo_filepath) as file:
-        for line in file:
-            for num in line:
-                f.write(''.join(' {}'.format(round(float(num * 255)))))
-
-
-def npo_to_png_file():
-    if len(sys.argv) < 2:
+def npo_to_png_file(my_output_folder):
+    if len(sys.argv) < 4:
         print("Enter path to log file")
         sys.exit()
-    if ".npo" in os.path.basename(sys.argv[1]):
-        make_output_file(os.path.abspath(sys.argv[1]))
+    if ".npi" in os.path.basename(sys.argv[1]):
+        some_arr = np.fromfile(os.path.abspath(sys.argv[1]), dtype=np.float32)
+        if len(some_arr) / (int(sys.argv[2]) * int(sys.argv[3])) == 1:
+            is_gray = 1
+        else:
+            is_gray = 0
+        my_output_file = my_output_folder + '/' + sys.argv[1].split('/')[-1].split('.')[0] + '.png'
+        make_output_file(os.path.abspath(sys.argv[1]), my_output_file, is_gray)
     else:
         print("Wrong .npo file! Please, check extension.")
         sys.exit()
 
 
-def npo_to_png_folder():
-    if len(sys.argv) < 2:
+def npo_to_png_folder(my_output_folder):
+    if len(sys.argv) < 4:
         print("Enter path to log folder")
         sys.exit()
-    for subdir, dirs, files in os.walk(sys.argv[1]):
-        for my_file in files:
-            my_file = os.path.abspath(my_file).split(my_file)[0] + sys.argv[1] + "/" + my_file
-            make_output_file(os.path.abspath(my_file))
+    files = glob.glob(sys.argv[1] + '/*.npo')
+    some_file = sys.argv[1] + '/' + files[1].split('/')[-1]
+    some_arr = np.fromfile(some_file, dtype=np.float32)
+    if len(some_arr) / (int(sys.argv[2]) * int(sys.argv[3])) == 1:
+        is_gray = 1
+    else:
+        is_gray = 0
+    for my_file in files:
+        buf = my_file.split('/')[-1].split('.')[0]
+        output_file = my_output_folder + '/' + buf + '.png'
+        make_output_file(my_file, output_file, is_gray)
 
 
 if __name__ == '__main__':
+    output_folder = os.getcwd() + "/output"
+    if not os.path.isdir(output_folder):
+        os.makedirs(output_folder)
     if os.path.isfile(os.path.abspath(sys.argv[1])):
-        npo_to_png_file()
+        npo_to_png_file(output_folder)
     else:
-        npo_to_png_folder()
+        npo_to_png_folder(output_folder)
