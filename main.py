@@ -21,9 +21,10 @@ def main():
     values = []
     indices_valid = []
     values_valid = []
+    epoch = 0
     for line in lines:
-        error_res = re.findall(r'Iteration:(\d+).*Error:(\d+\.\d+)', line)
-        valid_res = re.findall(r'Epoch:(\d+).*Iteration:(\d+).*Cross Validation Error:(\d+\.\d+)', line)
+        error_res = re.findall(r'^Iteration:(\d+).*Error:(\d+\.\d+)', line)
+        valid_res = re.findall(r'^Epoch:(\d+).*Iteration:(\d+).*Cross Validation Error:(\d+\.\d+)', line)
         if error_res:
             index, value = error_res[0]
             indices.append(int(index))
@@ -33,7 +34,16 @@ def main():
             indices_valid.append(int(index))
             values_valid.append(float(value))
 
-    plt.plot(indices, values, '-', indices_valid, values_valid, '-')
+    minimum_values_count = 10 if int(epoch) > 10 else int(epoch)
+    
+    minimum_values = sorted(values)[:minimum_values_count]
+    minimum_indices = []
+    for x in range(0, minimum_values_count):
+        minimum_indices.append(values.index(minimum_values[x]))
+    print('epoch: {0}'.format(epoch))
+    print('minimum values: {0}'.format(minimum_values))
+    print('minimum indices: {0}'.format(minimum_indices))
+    plt.plot(indices, values, '-', indices_valid, values_valid, '-', minimum_indices, minimum_values, 'ro')
     plt.show()
 
 if __name__ == '__main__':
