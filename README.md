@@ -22,5 +22,5 @@ source ~/.virtualenv/npo_to_txt/bin/activate
 
 ```
 pip3 install -r requirements.txt
-python3 main.py test_npo
+python3 main.py 0.npo
 ```
