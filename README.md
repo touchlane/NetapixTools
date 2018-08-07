@@ -21,7 +21,7 @@ source ~/.virtualenv/jpg_and_txt_to_npt/bin/activate
 
 ```
 pip3 install -r requirements.txt
-python3 main.py input_jpg input_txt
+python3 main.py test_images test_labels
 ```
 
 Note that you can run both with files and folders in any order you want, however there should be **.jpg** file(or files) in folder and **.txt** file(or files) in folder.
