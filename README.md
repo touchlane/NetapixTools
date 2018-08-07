@@ -8,7 +8,7 @@
 
 ```
 mkdir -p ~/.virtualenv
-virtualenv --python=python3 --no-site-packages ~/.virtualenv/'yourproject'
+virtualenv --python=python3 --no-site-packages ~/.virtualenv/jpg_to_npi
 ```
 
 ### Activate this virtual env
