@@ -36,10 +36,11 @@ def main():
 
     minimum_values_count = 10 if int(epoch) > 10 else int(epoch)
     
-    minimum_values = sorted(values)[:minimum_values_count]
+    minimum_values = sorted(set(values_valid))[:minimum_values_count]
     minimum_indices = []
     for x in range(0, minimum_values_count):
-        minimum_indices.append(values.index(minimum_values[x]))
+        value_index = values_valid.index(minimum_values[x])
+        minimum_indices.append(indices_valid[value_index])
     print('epoch: {0}'.format(epoch))
     print('minimum values: {0}'.format(minimum_values))
     print('minimum indices: {0}'.format(minimum_indices))
