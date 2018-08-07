@@ -5,19 +5,11 @@ import numpy as np
 import glob
 
 
-def make_output_file_url(npo_file_url):
-    output_file_name = os.path.basename(npo_file_url).split('.')[0]
-    output_file_url = os.getcwd() + '/'
-    if not os.path.exists(output_file_url + "output"):
-        os.makedirs(output_file_url + "output")
-    return output_file_url + "output/" + output_file_name + ".txt"
-
-
 def make_output_file(npo_filepath, output_file):
     f = open(output_file, "w+")
     with open(npo_filepath, 'rb') as file:
         array = np.fromfile(file, dtype=np.float32)
-        array = map(lambda x: round(x * 255), array)
+        array = map(lambda x: round(x), array)
         np.savetxt(f, array, newline=' ', fmt='%.f')
 
 
