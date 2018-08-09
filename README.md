@@ -8,3 +8,4 @@
 | [.jpg => .npi](https://github.com/touchlane/NetapixTools/tree/jpg_to_npi) |  |
 | [.npo => .txt](https://github.com/touchlane/NetapixTools/tree/npo_to_txt) |  |
 | [.npo => .png](https://github.com/touchlane/NetapixTools/tree/npo_to_png) |  |
+| [batch run](https://github.com/touchlane/NetapixTools/tree/batch_run_script) |  |
