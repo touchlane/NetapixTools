@@ -3,29 +3,29 @@ import os
 import sys
 import numpy as np
 import glob
+import skimage.io as io
 
 
 def get_file_accuracy(output_file, label_file):
-    with open(output_file, "r") as o_f:
-        result_array = np.loadtxt(o_f, dtype=np.float32)
+    with open(output_file, "rb") as o_f:
+        result_array = np.fromfile(o_f, dtype=np.float32)
         o_f.close()
-    with open(label_file, "r") as l_f:
-        label_array = np.loadtxt(l_f, dtype=np.float32)
+    with open(label_file, "rb") as l_f:
+        tmp = np.loadtxt(l_f, dtype=np.float32) if ".txt" in label_file else tmp = io.imread(label_file)
+        label_array = tmp.ravel()
         l_f.close()
     buf = label_array - result_array
     file_error = sum(buf ** 2 / 2)
     return file_error
 
 
-def get_accuracy(output_folder, label_folder):
-    if len(sys.argv) < 3:
-        print("main.py [path/results.txt] [path/labels.txt]")
-        sys.exit()
+def get_accuracy(output_folder, label_folder, is_txt):
     max_error = 0
     sum_error = 0
-    output_files = glob.glob(os.path.abspath(sys.argv[1]) + "/*.txt")
+    output_files = glob.glob(os.path.abspath(sys.argv[1]) + "/*.npo")
     for output_file in output_files:
-        label_file = sys.argv[2] + "/" + output_file.split("/")[-1]
+        buf = sys.argv[2] + "/" + output_file.split("/")[-1].split(".")[0]
+        label_file = buf + ".txt" if is_txt else buf + ".jpg"
         error = get_file_accuracy(output_file, label_file)
         if error > max_error:
             max_error = error
@@ -35,7 +35,14 @@ def get_accuracy(output_folder, label_folder):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) < 3:
+        print("main.py [path/results.txt] [path/labels.txt]")
+        sys.exit()
     if not (os.path.isdir(sys.argv[1]) or os.path.isdir(sys.argv[2])):
         print("Wrong input! Accuracy for only one input file will be 0.")
+        sys.exit()
     else:
-        get_accuracy(os.path.abspath(sys.argv[1]), os.path.abspath(sys.argv[2]))
+        if ".jpg" in os.listdir(sys.argv[2])[0]:
+            get_accuracy(os.path.abspath(sys.argv[1]), os.path.abspath(sys.argv[2]))
+        else:
+            get_accuracy(os.path.abspath(sys.argv[1]), os.path.abspath(sys.argv[2]))
