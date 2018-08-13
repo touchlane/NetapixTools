@@ -1,7 +1,7 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
 # Test Accuracy
-Python script. Evaluates deviation of a given Netapix-trained output set relatively to its target values, interprets result as training model accuracy.
+Python script. Evaluates deviation of a given Netapix-trained output set relatively to its target values. Interprets result as training model accuracy.
 
 # Installation
 ```
