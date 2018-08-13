@@ -11,7 +11,7 @@ def get_file_accuracy(output_file, label_file):
         result_array = np.fromfile(o_f, dtype=np.float32)
         o_f.close()
     with open(label_file, "rb") as l_f:
-        tmp = np.loadtxt(l_f, dtype=np.float32) if ".txt" in label_file else tmp = io.imread(label_file)
+        tmp = np.loadtxt(l_f, dtype=np.float32) if ".txt" in label_file else io.imread(label_file)
         label_array = tmp.ravel()
         l_f.close()
     buf = label_array - result_array
