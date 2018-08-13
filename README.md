@@ -9,5 +9,5 @@ pip3 install -r requirements.txt
 
 # Usage
 ```
-python3 main.py [*NETAPIX_OUTPUT_PATH*] [*LABELS_PATH*]
+python3 main.py [NETAPIX_OUTPUT_PATH] [LABELS_PATH]
 ```
