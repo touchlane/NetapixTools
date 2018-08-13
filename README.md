@@ -13,5 +13,5 @@ python3 main.py [NETAPIX_OUTPUT_PATH] [LABELS_PATH]
 ```
 | Param | Comment |
 | ------------- | ------------- |
-| *NETAPIX_OUTPUT_PATH* | path to directory with netapix outputs (\*.npo)|
-| *LABELS_PATH* | path to directory with taret values (\*.jpg || \*.txt)|
+| NETAPIX_OUTPUT_PATH | path to directory with netapix outputs (\*.npo)|
+| LABELS_PATH | path to directory with taret values (\*.txt or \*.jpg)|
