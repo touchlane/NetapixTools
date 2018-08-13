@@ -20,6 +20,5 @@ source ~/.virtualenv/batch_run_script/bin/activate
 ## Run script
 
 ```
-pip3 install -r requirements.txt
 python3 main.py [path/.exe file] test_npi test.npw
 ```
