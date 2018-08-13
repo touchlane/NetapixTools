@@ -9,4 +9,4 @@
 | [.npo => .png](https://github.com/touchlane/NetapixTools/tree/npo_to_png) |  |
 | [loss graph](https://github.com/touchlane/NetapixTools/tree/loss_graph) | training progress visualisation |
 | [batch run](https://github.com/touchlane/NetapixTools/tree/batch_run_script) |  |
-| [test accuracy](https://github.com/touchlane/NetapixTools/tree/accuracy_script) |  |
+| [test accuracy](https://github.com/touchlane/NetapixTools/tree/accuracy_script) | model accuracy evaluation |
