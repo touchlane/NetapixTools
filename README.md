@@ -9,13 +9,18 @@ pip3 install -r requirements.txt
 
 # Usage
 ```
-python3 main.py [LOSS] [NETAPIX_OUTPUT_PATH] [LABELS_PATH]
+python3 main.py [LOSS_TYPE] [NETAPIX_OUTPUT_PATH] [LABELS_PATH]
 ```
 
 # Documentation
 
 | Param | Comment |
 | ------------- | ------------- |
-| LOSS | |
+| LOSS_TYPE | |
 | NETAPIX_OUTPUT_PATH | path to directory with netapix outputs (\*.npo)|
 | LABELS_PATH | path to directory with target values (\*.txt or \*.jpg)|
+
+| LOSS TYPE | Comment |
+| ------------- | ------------- |
+| msqe | mean squared error function |
+
