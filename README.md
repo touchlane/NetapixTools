@@ -11,9 +11,10 @@ pip3 install -r requirements.txt
 ```
 python3 main.py [NETAPIX_OUTPUT_PATH] [LABELS_PATH]
 ```
+
+# Documentation
+
 | Param | Comment |
 | ------------- | ------------- |
 | NETAPIX_OUTPUT_PATH | path to directory with netapix outputs (\*.npo)|
 | LABELS_PATH | path to directory with target values (\*.txt or \*.jpg)|
-
-# Documentation
