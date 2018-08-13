@@ -43,6 +43,6 @@ if __name__ == '__main__':
         sys.exit()
     else:
         if ".jpg" in os.listdir(sys.argv[2])[0]:
-            get_accuracy(os.path.abspath(sys.argv[1]), os.path.abspath(sys.argv[2]))
+            get_accuracy(os.path.abspath(sys.argv[1]), os.path.abspath(sys.argv[2]), False)
         else:
-            get_accuracy(os.path.abspath(sys.argv[1]), os.path.abspath(sys.argv[2]))
+            get_accuracy(os.path.abspath(sys.argv[1]), os.path.abspath(sys.argv[2]), True)
