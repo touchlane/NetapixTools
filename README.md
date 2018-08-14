@@ -2,7 +2,7 @@
 
 | Tool | Comment |
 | ------------- | ------------- |
-| [.jpg + .txt => .npt](https://github.com/touchlane/NetapixTools/tree/jpg_and_txt_to_npt) |  |
+| [.jpg + .txt => .npt](https://github.com/touchlane/NetapixTools/tree/jpg_and_txt_to_npt) | converts .jpg and .txt pair to .npt format |
 | [.jpg + .jpg => .npt](https://github.com/touchlane/NetapixTools/tree/jpg_and_jpg_to_npt) |  |
 | [.jpg => .npi](https://github.com/touchlane/NetapixTools/tree/jpg_to_npi) |  |
 | [.npo => .txt](https://github.com/touchlane/NetapixTools/tree/npo_to_txt) |  |
