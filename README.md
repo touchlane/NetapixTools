@@ -2,7 +2,7 @@
 
 # Image normalizer
 
-Utility tool written in Python. Takes image and text files pair and cast it to the format supported by training mode of our [Netapix app](https://github.com/touchlane/Netapix). 
+Utility tool written in Python. Takes image and text files pair and casts it to the format supported by training mode of our [Netapix app](https://github.com/touchlane/Netapix). 
 
 # Installation
 
