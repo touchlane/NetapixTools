@@ -1,25 +1,23 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
-# Usage
+# Jpg to npi
 
-## Install virtual environment
+Supporting tool written in Python programming language. Casts image file to the suitable format for the run mode of our [Netapix app](https://github.com/touchlane/Netapix).  
 
-### Create a virtual env for the project
-
-```
-mkdir -p ~/.virtualenv
-virtualenv --python=python3 --no-site-packages ~/.virtualenv/jpg_to_npi
-```
-
-### Activate this virtual env
-
-```
-source ~/.virtualenv/jpg_to_npi/bin/activate
-```
-
-## Run script
+# Installation
 
 ```
 pip3 install -r requirements.txt
-python3 main.py test_images
 ```
+
+# Usage
+
+```
+python3 main.py [JPG_PATH]
+```
+
+# Documentation
+
+| Param | Comment |
+| ------------- | ------------- |
+| JPG_PATH | path to a directory with images (/*.jpg)|
