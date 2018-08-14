@@ -1,27 +1,24 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
-# Usage
+# Image normalizer
 
-## Install virtual environment
+Utility tool written in Python. Takes image and text files pair and cast it to format supported by training mode of our [Netapix app](https://github.com/touchlane/Netapix). 
 
-### Create a virtual env for the project
-
-```
-mkdir -p ~/.virtualenv
-virtualenv --python=python3 --no-site-packages ~/.virtualenv/jpg_and_txt_to_npt
-```
-
-### Activate this virtual env
-
-```
-source ~/.virtualenv/jpg_and_txt_to_npt/bin/activate
-```
-
-## Run script
+# Installation
 
 ```
 pip3 install -r requirements.txt
-python3 main.py test_images test_labels
 ```
 
-Note that you can run both with files and folders in any order you want, however there should be **.jpg** file(or files) in folder and **.txt** file(or files) in folder.
+# Usage
+
+```
+python3 main.py [JPG_PATH] [TXT_PATH]
+```
+
+# Documentation
+
+| Param | Comment |
+| ------------- | ------------- |
+| JPG_PATH | path to a directory with images (/*.jpg)|
+| TXT_PATH | path to a directory with txt files (/*.txt)|
