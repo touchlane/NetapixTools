@@ -1,6 +1,6 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
-# Image normalizer
+# Jpg and jpg to txt
 
 Subsidiary Python script. Takes two image files pair and casts it to the .npt format according to the needs of training mode of our [Netapix app](https://github.com/touchlane/Netapix).  
 
