@@ -1,24 +1,23 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
-# Usage
+# Image normalizer
 
-## Install virtual environment
+Subsidiary Python script. Takes two image files pair and casts it to the .npt format according to the needs of training mode of our [Netapix app](https://github.com/touchlane/Netapix).  
 
-### Create a virtual env for the project
-
-```
-mkdir -p ~/.virtualenv
-virtualenv --python=python3 --no-site-packages ~/.virtualenv/jpg_and_jpg_to_npt
-```
-
-### Activate this virtual env
-
-```
-source ~/.virtualenv/jpg_and_jpg_to_npt/bin/activate
-```
-## Run script
+# Installation
 
 ```
 pip3 install -r requirements.txt
-python3 main.py test_images_1 test_images_2
 ```
+
+# Usage
+
+```
+python3 main.py [JPG_PATH] [JPG_PATH]
+```
+
+# Documentation
+
+| Param | Comment |
+| ------------- | ------------- |
+| JPG_PATH | path to a directory with images (/*.jpg)|
