@@ -1,24 +1,23 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
-# Usage
+# Npo to png
 
-## Install virtual environment
+Just another Python utility tool. Takes a result of execution of the [Netapix app](https://github.com/touchlane/Netapix) and visualize it by casting to image format. This script takes as a parameter both file and folder. 
 
-### Create a virtual env for the project
-
-```
-mkdir -p ~/.virtualenv
-virtualenv --python=python3 --no-site-packages ~/.virtualenv/npo_to_png
-```
-
-### Activate this virtual env
-
-```
-source ~/.virtualenv/npo_to_png/bin/activate
-```
-## Run script
+# Installation
 
 ```
 pip3 install -r requirements.txt
-python3 main.py [path/*.npo]
 ```
+
+# Usage
+
+```
+python3 main.py [NETAPIX_OUTPUT_PATH]
+```
+
+# Documentation
+
+| Param | Comment |
+| ------------- | ------------- |
+| NETAPIX_OUTPUT_PATH | path to a directory or a file with Netapix output data (/*.npo)|
