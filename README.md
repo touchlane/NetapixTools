@@ -21,4 +21,4 @@ python3 main.py [INPUT_PATH] [ORIENTATION_PARAMETER]
 | Param | Comment |
 | ------------- | ------------- |
 | INPUT_PATH | path to a directory with images (\*.JPG)|
-| ORIENTATION_PARAMETER | case insensitive parameter that specifies orientation of the output images (portrait/landscape)|
+| ORIENTATION_PARAMETER | case-insensitive parameter that specifies orientation of the output images (portrait/landscape)|
