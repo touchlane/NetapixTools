@@ -3,11 +3,6 @@
 # Batch run
 Auxiliary tool written in Python. Runs [Netapix app](https://github.com/touchlane/Netapix) using each file from a given batch as an input parameter. You are able to place the output folder in any memory location you want just by adding additional path parameter.
 
-# Installation
-```
-pip3 install -r requirements.txt
-```
-
 # Usage
 ```
 python3 main.py [NETAPIX_PATH] [INPUT_PATH] [WEIGHT_PATH] (optional)[OUTPUT_PATH]
