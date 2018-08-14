@@ -10,14 +10,14 @@ pip3 install -r requirements.txt
 
 # Usage
 ```
-python3 main.py [EXE_FILE_PATH] [INPUT_PATH] [WEIGHT_PATH] (optional)[OUTPUT_PATH]
+python3 main.py [NETAPIX_PATH] [INPUT_PATH] [WEIGHT_PATH] (optional)[OUTPUT_PATH]
 ```
 
 # Documentation
 
 | Param | Comment |
 | ------------- | ------------- |
-| EXE_FILE_PATH | path to an executable file (\*.exe)|
+| NETAPIX_PATH | path to an executable Netapix file|
 | INPUT_PATH | path to a directory with netapix inputs (\*.npi)|
-| TARGETWEIGHT_PATH_PATH | path to a file with weights (\*.npw)|
+| WEIGHT_PATH_PATH | path to a file with weights (\*.npw)|
 | OUTPUT_PATH | path to a directory you want to save results in |
