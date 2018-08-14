@@ -2,7 +2,7 @@
 
 # Jpg to npi
 
-Supporting tool written in Python programming language. Casts image file to the suitable format for the run mode of our [Netapix app](https://github.com/touchlane/Netapix).  
+Supporting tool written in Python programming language. Casts image files from the given folder to the suitable format for the run mode of our [Netapix app](https://github.com/touchlane/Netapix).  
 
 # Installation
 
