@@ -10,3 +10,4 @@
 | [loss graph](https://github.com/touchlane/NetapixTools/tree/loss_graph) | training progress visualisation |
 | [batch run](https://github.com/touchlane/NetapixTools/tree/batch_run_script) | app execution for multiple inputs |
 | [test accuracy](https://github.com/touchlane/NetapixTools/tree/accuracy_script) | model accuracy evaluation |
+| [image normalizer](https://github.com/touchlane/NetapixTools/tree/image_normalizer) | images orientation changing |
