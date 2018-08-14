@@ -8,5 +8,5 @@
 | [.npo => .txt](https://github.com/touchlane/NetapixTools/tree/npo_to_txt) |  |
 | [.npo => .png](https://github.com/touchlane/NetapixTools/tree/npo_to_png) |  |
 | [loss graph](https://github.com/touchlane/NetapixTools/tree/loss_graph) | training progress visualisation |
-| [batch run](https://github.com/touchlane/NetapixTools/tree/batch_run_script) |  |
+| [batch run](https://github.com/touchlane/NetapixTools/tree/batch_run_script) | app execution for multiple inputs |
 | [test accuracy](https://github.com/touchlane/NetapixTools/tree/accuracy_script) | model accuracy evaluation |
