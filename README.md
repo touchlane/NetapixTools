@@ -13,11 +13,12 @@ pip3 install -r requirements.txt
 # Usage
 
 ```
-python3 main.py [JPG_PATH] [JPG_PATH]
+python3 main.py [JPG_TARGET] [JPG_LABEL]
 ```
 
 # Documentation
 
 | Param | Comment |
 | ------------- | ------------- |
-| JPG_PATH | path to a directory with images (/*.jpg)|
+| JPG_TARGET | path to a target image file or directory with target images (/*.jpg)|
+| JPG_LABEL | path to a label image file or directory with label images (/*.jpg)|
