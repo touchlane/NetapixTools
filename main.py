@@ -9,8 +9,10 @@ def make_output_file(npo_filepath, output_file):
     f = open(output_file, "w+")
     with open(npo_filepath, 'rb') as file:
         array = np.fromfile(file, dtype=np.float32)
-        array = map(lambda x: round(x), array)
-        np.savetxt(f, array, newline=' ', fmt='%.f')
+        print(array)
+        array = map(lambda x: round(x, 7), array)
+        print(array)
+        np.savetxt(f, array, newline=' ', fmt='%.7f')
 
 
 def npo_to_txt_file(my_output_folder):

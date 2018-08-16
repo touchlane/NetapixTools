@@ -1,26 +1,23 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
-# Usage
+# Npo to txt
 
-## Install virtual environment
+Script takes a result of execution of the [Netapix app](https://github.com/touchlane/Netapix) run mode and converts it to text format. This script takes as a parameter both file and folder. 
 
-### Create a virtual env for the project
-
-```
-mkdir -p ~/.virtualenv
-virtualenv --python=python3 --no-site-packages ~/.virtualenv/npo_to_txt
-```
-
-### Activate this virtual env
-
-```
-source ~/.virtualenv/npo_to_txt/bin/activate
-```
-
-
-### Run script
+# Installation
 
 ```
 pip3 install -r requirements.txt
-python3 main.py 0.npo
 ```
+
+# Usage
+
+```
+python3 main.py [NETAPIX_OUTPUT_PATH]
+```
+
+# Documentation
+
+| Param | Comment |
+| ------------- | ------------- |
+| NETAPIX_OUTPUT_PATH | path to a directory or a file with Netapix output data (/*.npo)|
