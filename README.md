@@ -2,7 +2,7 @@
 
 # Image normalizer
 
-Supporting Python script. Changes the orientation of the images in the folder due to entered parameter.
+Supporting Python script. Changes the orientation of the images in the folder due to entered parameter than crops it to sutisfy requirements of the [Netapix app](https://github.com/touchlane/Netapix).
 
 # Installation
 
