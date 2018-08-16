@@ -20,5 +20,5 @@ python3 main.py [JPG_PATH] [TXT_PATH]
 
 | Param | Comment |
 | ------------- | ------------- |
-| JPG_PATH | path to a directory with images (/*.jpg)|
-| TXT_PATH | path to a directory with txt files (/*.txt)|
+| JPG_PATH | path to a target file or a directory with target images (/*.jpg)|
+| TXT_PATH | path to a label file or a directory with label txt files (/*.txt)|
