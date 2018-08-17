@@ -13,12 +13,12 @@ pip3 install -r requirements.txt
 # Usage
 
 ```
-python3 main.py [JPG_PATH] [TXT_PATH]
+python3 main.py [JPG_INPUT] [TXT_TARGET]
 ```
 
 # Documentation
 
 | Param | Comment |
 | ------------- | ------------- |
-| JPG_PATH | path to a target file or a directory with target images (/*.jpg)|
-| TXT_PATH | path to a label file or a directory with label txt files (/*.txt)|
+| JPG_INPUT | path to an input file or a directory with input images (/*.jpg)|
+| TXT_TARGET | path to a target file or a directory with target txt files (/*.txt)|
