@@ -2,7 +2,7 @@
 
 # Jpg and jpg to npt
 
-Subsidiary Python script. Takes two image files pair and casts it to the .npt format according to the needs of training mode of [Netapix app](https://github.com/touchlane/Netapix).  
+Subsidiary Python script. Takes two image files pair and casts it to the .npt format according to the needs of training mode of the [Netapix app](https://github.com/touchlane/Netapix).  
 
 # Installation
 
