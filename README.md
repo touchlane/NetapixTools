@@ -20,4 +20,4 @@ python3 main.py [PNG_PATH]
 
 | Param | Comment |
 | ------------- | ------------- |
-| PNG_PATH | path to a directory with images (/*.png)|
+| PNG_PATH | path to the image file or to the directory with images (/*.png)|
