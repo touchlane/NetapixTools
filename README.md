@@ -11,5 +11,5 @@
 | [batch run](https://github.com/touchlane/NetapixTools/tree/batch_run_script) | app execution for multiple inputs |
 | [test accuracy](https://github.com/touchlane/NetapixTools/tree/accuracy_script) | model accuracy evaluation |
 | [image normalizer](https://github.com/touchlane/NetapixTools/tree/image_normalizer) | images adjusting |
-| [.npw reader](https://github.com/touchlane/NetapixTools/tree/npw_interpreter) | looking inside [netapix](https://github.com/touchlane/Netapix) weight files  |
+| [.npw reader](https://github.com/touchlane/NetapixTools/tree/npw_interpreter) | looking inside weight files  |
 | [.png => .jpg](https://github.com/touchlane/NetapixTools/tree/png_to_jpg) | simple convertation .png to .jpg |
