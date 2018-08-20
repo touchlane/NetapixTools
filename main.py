@@ -6,51 +6,56 @@ from PIL import Image
 import cv2
 
 
-def crop(pil_image, outputpath, imagename):
-    area = (0, 0, 3024, 3024)
-    image_pil = pil_image.crop(area)
-    size = (480, 480)
-    image_pil.thumbnail(size, Image.ANTIALIAS)
-    image_pil.save(outputpath + '/' + imagename, "JPEG")
+def rotate_image(filepath, orientation, outputpath):
+    image = Image.open(filepath)
+    width, height = image.size
+    if orientation.upper() == "PORTRAIT" and width > height:
+        image = image.rotate(90, expand=True)
+    elif orientation.upper() == "LANDSCAPE" and width < height:
+        image = image.rotate(90, expand=True)
+    image.save(outputpath + '/' + filepath.split('/')[-1], "JPEG")
 
 
-def adjust_image(filepath, orientation, outputpath):
-    imagename = filepath.split('/')[-1]
+def adjust_image(filepath, width, height, outputpath):
     image = cv2.imread(filepath)
     cur_height, cur_width = image.shape[:2]
-    isPortrait = True if cur_height > cur_width else False
-    if cur_width/cur_height == 3024/4032 or cur_width/cur_height == (3024/4032)**(-1):
-        if cur_height != 4032 and cur_width != 3024:
-            if isPortrait:
-                ratio_x = 3024/cur_width
-                ratio_y = 4032/cur_height
-                image = cv2.resize(image, (0, 0), fx=ratio_x, fy=ratio_y)
-            else:
-                ratio_x = 4032 / cur_width
-                ratio_y = 3024 / cur_height
-                image = cv2.resize(image, (0, 0), fx=ratio_x, fy=ratio_y)
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    image_pil = Image.fromarray(image)
-    if not image_pil.size[0] < image_pil.size[1]:
-        image_pil = image_pil.rotate(90, expand=True)
-    crop(image_pil, outputpath, imagename)
+    if width * height < cur_height * cur_width:
+        new_dim = cur_width if cur_width - width < cur_height - height else cur_height
+        new_dim_2 = new_dim * height / width if new_dim == cur_width else new_dim * width / height
+        new_x = 0 if new_dim == cur_width else (cur_width - new_dim_2) / 2
+        new_y = 0 if new_dim == cur_height else (cur_height - new_dim_2) / 2
+        new_width = new_dim if new_dim == cur_width else new_dim_2
+        new_height = new_dim if new_dim == cur_height else new_dim_2
+        cropped_image = image[int(new_y): int(new_y + new_height), int(new_x): int(new_x + new_width)]
+        cur_height, cur_width = cropped_image.shape[:2]
+        ratio_x = width / cur_width
+        ratio_y = height / cur_height
+        image = cv2.resize(cropped_image, (0, 0), fx=ratio_x, fy=ratio_y)
+        cv2.imwrite(outputpath + '/' + filepath.split('/')[-1], image)
+        
 
-
-def adjust_images(orientation, outputpath):
+def process_images(operation, outputpath):
     images = glob.glob(sys.argv[1] + "/*.jpg")
-    for image in images:
-        adjust_image(image, orientation, outputpath)
+    if operation == "rotate":
+        for image in images:
+            rotate_image(image, sys.argv[2], outputpath)
+    elif operation == "resize":
+        for image in images:
+            adjust_image(image, int(sys.argv[2]), int(sys.argv[3]), outputpath)
 
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        print("Some parameters missed! python3 main.py [path/*.jpg] [orientation]")
+        print("Some parameters missed! python3 main.py [path/*.jpg] 1) [orientation] 2)[desired_width] [desired_height]")
         sys.exit()
-    if os.path.isdir(sys.argv[1]) and (sys.argv[2].upper() == "PORTRAIT" or sys.argv[2].upper() == "LANDSCAPE"):
+    if os.path.isdir(sys.argv[1]):
         outputpath = os.getcwd() + '/output'
         if not os.path.isdir(outputpath):
             os.makedirs(outputpath)
-        adjust_images(sys.argv[2].lower(), outputpath)
+        if len(sys.argv) == 3 and (sys.argv[2].upper() == "PORTRAIT" or sys.argv[2].upper() == "LANDSCAPE"):
+            process_images("rotate", outputpath)
+        elif len(sys.argv) == 4:
+            process_images("resize", outputpath)
     else:
         print("Wrong parameters! Check for typos in orientation parameter.")
         sys.exit()
