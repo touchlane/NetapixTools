@@ -18,7 +18,7 @@ pip3 install -r requirements.txt
 python3 main.py [INPUT_PATH] [ORIENTATION_PARAMETER]
 ```
 
-##Cropping image
+## Cropping image
 
 ```
 python3 main.py [INPUT_PATH] [DESIRED_WIDTH] [DESIRED_HEIGHT]
