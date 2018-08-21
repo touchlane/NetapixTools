@@ -24,7 +24,7 @@ def make_output_file(npo_filepath, output_file):
     index = 0
     for i in range(int(sys.argv[2])):
         for j in range(int(sys.argv[3])):
-            real_array[index] = map(lambda x: x*255, real_array[index])
+            real_array[index] = list(map(lambda x: x*255, real_array[index]))
             real_array[index].append(255)
             buf[i, j] = real_array[index]
             index += 1
