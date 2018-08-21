@@ -1,8 +1,8 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
-# Npw interpreter
+# .npw reader
 
-Utility tool. Opens the possibility to look inside the weight file of the [Netapix app](https://github.com/touchlane/Netapix).  
+Utility tool. Makes a text file from the [Netapix](https://github.com/touchlane/Netapix) weight file so you can easily see what happens behind the scenes.
 
 # Installation
 
