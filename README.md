@@ -13,7 +13,7 @@ pip3 install -r requirements.txt
 # Usage
 
 ```
-python3 main.py [NETAPIX_OUTPUT_PATH]
+python3 main.py [NETAPIX_OUTPUT_PATH] [WIDTH] [HEIGHT]
 ```
 
 # Documentation
@@ -21,3 +21,5 @@ python3 main.py [NETAPIX_OUTPUT_PATH]
 | Param | Comment |
 | ------------- | ------------- |
 | NETAPIX_OUTPUT_PATH | path to a directory or a file with Netapix output data (/*.npo)|
+| WIDTH | width of the image in pixels |
+| HEIGHT | height of the image in pixels |
