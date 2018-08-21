@@ -67,11 +67,11 @@ def read_layer(myfile, i, output_file):
 
 if __name__ == '__main__':
     output_file = open(os.getcwd() + "/output.txt", "w+")
-    with open(os.path.abspath(sys.argv[1]), "rb") as file:
-        layers_count = np.fromfile(file, dtype=c_int, count=1)
+    with open(os.path.abspath(sys.argv[1]), "rb") as npw_file:
+        layers_count = np.fromfile(npw_file, dtype=c_int, count=1)
         output_file.write("Number of layers = {}\n".format(layers_count[0]))
         output_file.write("\n")
         for i in range(layers_count[0]):
-            read_layer(file, i, output_file)
-    file.close()
+            read_layer(npw_file, i, output_file)
+    npw_file.close()
     output_file.close()
