@@ -4,7 +4,7 @@
 | ------------- | ------------- |
 | [.jpg + .txt => .npt](https://github.com/touchlane/NetapixTools/tree/jpg_and_txt_to_npt) | converts .jpg and .txt pair to .npt format |
 | [.jpg + .jpg => .npt](https://github.com/touchlane/NetapixTools/tree/jpg_and_jpg_to_npt) | converts .jpg and .jpg pair to .npt format |
-| [.jpg => .npi](https://github.com/touchlane/NetapixTools/tree/jpg_to_npi) | converts .jpg to .npt |
+| [.jpg => .npi](https://github.com/touchlane/NetapixTools/tree/jpg_to_npi) | converts .jpg to .npi |
 | [.npo => .txt](https://github.com/touchlane/NetapixTools/tree/npo_to_txt) | converts .npo to .txt |
 | [.npo => .png](https://github.com/touchlane/NetapixTools/tree/npo_to_png) | converts .npo to .png |
 | [loss graph](https://github.com/touchlane/NetapixTools/tree/loss_graph) | training progress visualisation |
