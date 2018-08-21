@@ -44,11 +44,12 @@ def read_layer(myfile, i, output_file):
             output_file.write("Tensor {}\n".format(j + 1))
             elements = np.fromfile(myfile, dtype=np.float32, count=config.width * config.height * config.input_depth)
             for k in range(config.input_depth):
-                np.savetxt(output_file, elements[k::config.input_depth].reshape(config.width, config.height))
+                np.savetxt(output_file, elements[k::config.input_depth].reshape(config.width, config.height),
+                           fmt='%1.7f')
                 output_file.write("\n")
         bias = np.fromfile(myfile, dtype=np.float32, count=config.channels)
         output_file.write("Bias:\n")
-        np.savetxt(output_file, bias)
+        np.savetxt(output_file, bias, fmt='%1.7f')
         output_file.write("\n")
     elif config.type == 1:
         output_file.write("Connected\n")
@@ -56,11 +57,11 @@ def read_layer(myfile, i, output_file):
                           format(config.input_length, config.output_length, config.activation))
         elements = np.fromfile(myfile, dtype=np.float32, count=config.input_length * config.output_length)
         output_file.write("Matrix:\n\n")
-        np.savetxt(output_file, elements.reshape(config.input_length, config.output_length))
+        np.savetxt(output_file, elements.reshape(config.input_length, config.output_length), fmt='%1.7f')
         output_file.write("\n")
         bias = np.fromfile(myfile, dtype=np.float32, count=config.output_length)
         output_file.write("Bias:\n")
-        np.savetxt(output_file, bias)
+        np.savetxt(output_file, bias, fmt='%1.7f')
         output_file.write("\n")
 
 
