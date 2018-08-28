@@ -4,6 +4,8 @@ import re
 import matplotlib as mpl
 mpl.use('TkAgg')
 import matplotlib.pyplot as plt
+plt.figure('Loss Graph')
+plt.title('Loss Graph')
 import numpy as np
 
 def main():
@@ -35,21 +37,19 @@ def main():
             values_valid.append(float(value))
 
     minimum_values_count = 10 if int(epoch) > 10 else int(epoch)
-    
     minimum_values = sorted(set(values_valid))[:minimum_values_count]
     minimum_indices = []
 
     for x in range(0, minimum_values_count):
         value_index = values_valid.index(minimum_values[x])
         minimum_indices.append(indices_valid[value_index])
-
     minimum_points = sorted(zip(minimum_indices, minimum_values), key=lambda tup: tup[0])
 
     print('epoch: {0}'.format(epoch))
     print('minimum points:')
     for point in minimum_points:
         print('index: {0}\tvalue: {1}'.format(point[0], point[1]))
-    # print('minimum indices: {0}'.format(minimum_indices))
+
     plt.plot(indices, values, '-')
     plt.plot(indices_valid, values_valid, '-o')
     plt.plot(minimum_indices, minimum_values, 'ro')
