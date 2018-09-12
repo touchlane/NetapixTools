@@ -1,5 +1,6 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
+# Table of contents
 | Tool | Comment |
 | ------------- | ------------- |
 | [.jpg + .txt => .npt](https://github.com/touchlane/NetapixTools/tree/jpg_and_txt_to_npt) | converts .jpg and .txt pair to .npt format |
