@@ -1,6 +1,6 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
-Subsidiary tools for the [Netapix](https://github.com/touchlane/Netapix) framework. These tools are all you need in order to succesfully use the framework.
+Subsidiary tools for the [Netapix](https://github.com/touchlane/Netapix) framework. These tools are all you need in order to be a full-fledged user.
 
 # Table of contents
 | Tool | Comment |
