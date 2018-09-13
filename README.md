@@ -1,4 +1,7 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
+![Language](https://img.shields.io/badge/language-python-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Platform](https://img.shields.io/badge/platform-MacOS-lightgrey.svg)
 
 Subsidiary tools for the [Netapix](https://github.com/touchlane/Netapix) framework. These tools are all you need in order to be a full-fledged user.
 
