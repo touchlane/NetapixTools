@@ -1,6 +1,6 @@
 ![LOGO](https://github.com/touchlane/NetapixTools/blob/master/Assets/logo.svg)
 
-![Language](https://img.shields.io/badge/language-python-blue.svg)
+![Language](https://img.shields.io/badge/language-Python-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-red.svg)
 ![Platform](https://img.shields.io/badge/platform-MacOS-lightgrey.svg)
 
