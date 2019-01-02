@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/license-MIT-red.svg)
 ![Platform](https://img.shields.io/badge/platform-MacOS-lightgrey.svg)
 
-Subsidiary tools for the [Netapix](https://github.com/touchlane/Netapix) framework. These tools are all you need in order to be a full-fledged user.
+Subsidiary tools for the [NetapixTrain](https://github.com/touchlane/NetapixTrain) framework. These tools are all you need in order to be a full-fledged user.
 
 # Table of contents
 | Tool | Comment |
